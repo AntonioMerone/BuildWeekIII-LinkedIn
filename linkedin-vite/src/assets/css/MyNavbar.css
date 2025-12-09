@@ -1,0 +1,36 @@
+/* Contenitore icona sopra + testo sotto */
+.nav-user-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+/* Riga con "Tu ▾" o "Per le aziende ▾" */
+.nav-user-label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 2px;
+}
+
+/* Colore freccina custom */
+.nav-arrow {
+  font-size: 20px;
+  color: #666;
+}
+
+/* Toglie la freccina automatica di Bootstrap SOLO per questi dropdown */
+.nav-tu .dropdown-toggle::after,
+.nav-aziende .dropdown-toggle::after {
+  display: none !important;
+}
+
+/* Niente testo blu e sottolineato */
+.nav-tu .dropdown-toggle,
+.nav-aziende .dropdown-toggle {
+  color: inherit !important;
+  text-decoration: none !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
