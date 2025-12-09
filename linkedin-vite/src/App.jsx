@@ -1,7 +1,12 @@
-import "./App.css";
+import "./App.css"
+import { Container } from "react-bootstrap"
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Container></Container>
+    </>
+  )
 }
 
-export default App;
+export default App
