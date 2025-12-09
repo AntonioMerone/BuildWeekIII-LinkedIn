@@ -5,6 +5,7 @@ import {
   Form,
   FormControl,
   NavDropdown,
+  InputGroup,
 } from "react-bootstrap"
 
 import logo from "../assets/linkedin-logo.webp"
@@ -13,7 +14,7 @@ import "../assets/css/MyNavbar.css"
 
 function MyNavbar() {
   return (
-    <Navbar bg="light" expand="lg" className="shadow-sm fixed-top py-0">
+    <Navbar bg="light" expand="lg" className="fixed-top py-0">
       <Container>
         {/* LOGO */}
         <Navbar.Brand href="#">
@@ -21,23 +22,21 @@ function MyNavbar() {
         </Navbar.Brand>
 
         {/* SEARCH BAR – SEMPRE VISIBILE */}
-        <Form className="d-flex position-relative flex-grow-1">
-          <i
-            className="bi bi-search position-absolute"
-            style={{
-              top: "50%",
-              left: "12px",
-              transform: "translateY(-50%)",
-              color: "#666",
-              fontSize: "16px",
-            }}
-          ></i>
+        <Form className="flex-grow-1">
+          <InputGroup>
+            <InputGroup.Text
+              className="bg-white border-end-0"
+              style={{ borderRadius: "50px 0 0 50px" }}
+            >
+              <i className="bi bi-search" style={{ color: "#666" }}></i>
+            </InputGroup.Text>
 
-          <FormControl
-            type="search"
-            placeholder="Cerca"
-            className="rounded-4 ps-5"
-          />
+            <FormControl
+              placeholder="Cerca"
+              className="border-start-0"
+              style={{ borderRadius: "0 50px 50px 0" }}
+            />
+          </InputGroup>
         </Form>
 
         {/* MENU COMPLETO – SOLO DA LG IN POI */}
