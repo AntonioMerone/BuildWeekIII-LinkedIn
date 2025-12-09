@@ -1,0 +1,79 @@
+.experience-card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.experience-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0;
+}
+
+.experience-close-btn {
+  color: rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  background: none;
+  border: none;
+}
+
+.experience-desc {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 16px;
+}
+
+.experience-item {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experience-icon {
+  width: 48px;
+  height: 48px;
+  background: #f3f2ef;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.experience-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0 0 4px;
+}
+
+.experience-item-company {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0 0 2px;
+}
+
+.experience-item-period {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.experience-add-btn {
+  margin-top: 12px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
