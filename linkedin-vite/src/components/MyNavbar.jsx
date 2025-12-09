@@ -6,11 +6,11 @@ import {
   FormControl,
   NavDropdown,
   InputGroup,
-} from "react-bootstrap"
+} from "react-bootstrap";
 
-import logo from "../assets/linkedin-logo.webp"
-import user from "../assets/user.png"
-import "../assets/css/MyNavbar.css"
+import logo from "../assets/linkedin-logo.webp";
+import user from "../assets/user.png";
+import "../assets/css/MyNavbar.css";
 
 function MyNavbar() {
   return (
@@ -129,7 +129,7 @@ function MyNavbar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
+  );
 }
 
-export default MyNavbar
+export default MyNavbar;

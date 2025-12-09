@@ -1,19 +1,16 @@
-<<<<<<< HEAD
 import "./App.css";
 import { Container } from "react-bootstrap";
 import Profile from "./components/Profile";
-=======
-import "./App.css"
-import { Container } from "react-bootstrap"
-import MyNavbar from "./components/MyNavbar"
->>>>>>> origin/navbar_branch-Sabatino
+import MyNavbar from "./components/MyNavbar";
 
 function App() {
   return (
     <>
       <MyNavbar />
-      <Container></Container>
-      <Profile></Profile>
+      <Container>
+        {" "}
+        <Profile></Profile>
+      </Container>
     </>
   );
 }
