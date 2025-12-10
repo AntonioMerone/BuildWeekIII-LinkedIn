@@ -32,7 +32,7 @@ function ProfileSidebar() {
   ];
 
   return (
-    <div style={{ width: "100%", maxWidth: "300px" }}>
+    <div style={{ width: "100%" }}>
       <div>
         <img className="mb-3 w-100" src="/img-consigliati.png" alt="" />
       </div>
