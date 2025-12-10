@@ -7,27 +7,27 @@ function ProfileSidebar() {
   const people = [
     {
       id: 1,
-      name: "Alessandro Minini",
-      role: "Strength & Conditioning Coach In Elite Rink Hockey",
-      img: "/img-profile.jpeg",
+      name: "Giuseppe Simone ",
+      role: "Cosa ci a questo",
+      img: "https://i1.sndcdn.com/artworks-000075752075-bktbts-t500x500.jpg",
     },
     {
       id: 2,
       name: "Ilaria Salis",
       role: "Case occupate, blocco navale via i negri dalle strade",
-      img: "/img-profile.jpeg",
+      img: "https://dimages2.corriereobjects.it/files/main_image_mobile/uploads/2024/04/26/662bcf3b212f8.jpeg",
     },
     {
       id: 3,
-      name: "Miriam De Maria",
-      role: "Communication & Branding Specialist | @Holcim 🌍",
-      img: "/img-profile.jpeg",
+      name: "Er Brasiliano",
+      role: "Non conosco il tisom",
+      img: "https://www.today.it/~media/horizontal-hi/27302640978695/brasiliano-foto-instagram-2.jpg",
     },
     {
       id: 4,
-      name: "Davide Guerrazzi",
-      role: "Studente presso Università degli Studi di Milano-Bicocca",
-      img: "/img-profile.jpeg",
+      name: "Rocco Siffredi",
+      role: "La grande mazza del West",
+      img: "https://static.wixstatic.com/media/35a551_a82dcef3ee1c4c2abc3e91e10aaa7db5~mv2.jpg/v1/fill/w_816,h_816,al_c,q_85/35a551_a82dcef3ee1c4c2abc3e91e10aaa7db5~mv2.jpg",
     },
   ];
 
