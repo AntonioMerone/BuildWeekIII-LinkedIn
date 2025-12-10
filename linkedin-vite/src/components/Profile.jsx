@@ -1,11 +1,9 @@
-import ProfileHeader from "./ProfileHeader";
-import SuggestedForYou from "./SuggestedForYou";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import Analytics from "./Analytics";
-import Activity from "./Activity";
-import Experience from "./Experience";
-import Education from "./Education";
+import ProfileHeader from "./ProfileHeader"
+import SuggestedForYou from "./SuggestedForYou"
+import Analytics from "./Analytics"
+import Activity from "./Activity"
+import Experience from "./Experience"
+import Education from "./Education"
 
 export default function Profile({ user }) {
   return (
@@ -18,5 +16,5 @@ export default function Profile({ user }) {
       <Experience />
       <Education />
     </>
-  );
+  )
 }

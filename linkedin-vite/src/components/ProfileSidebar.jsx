@@ -1,7 +1,7 @@
-import React from "react";
-import { Card, Button, Image } from "react-bootstrap";
+import React from "react"
+import { Card, Button, Image } from "react-bootstrap"
 
-import "./ProfileSidebar.css";
+import "./ProfileSidebar.css"
 
 function ProfileSidebar() {
   const people = [
@@ -29,12 +29,16 @@ function ProfileSidebar() {
       role: "La grande mazza del West",
       img: "https://static.wixstatic.com/media/35a551_a82dcef3ee1c4c2abc3e91e10aaa7db5~mv2.jpg/v1/fill/w_816,h_816,al_c,q_85/35a551_a82dcef3ee1c4c2abc3e91e10aaa7db5~mv2.jpg",
     },
-  ];
+  ]
 
   return (
     <div style={{ width: "100%" }}>
       <div>
-        <img className="mb-3 w-100" src="/img-consigliati.png" alt="" />
+        <img
+          className="mt-sm-3 mt-md-0 mb-3 w-100"
+          src="/img-consigliati.png"
+          alt=""
+        />
       </div>
 
       <Card className="sidebar-card mb-2 p-3">
@@ -150,7 +154,7 @@ function ProfileSidebar() {
         <img className="mt-3 w-100" src="/img-consigliati.png" alt="" />
       </div>
     </div>
-  );
+  )
 }
 
-export default ProfileSidebar;
+export default ProfileSidebar

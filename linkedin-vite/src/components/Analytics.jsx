@@ -1,6 +1,6 @@
-import { Card } from "react-bootstrap";
-import { FaEye, FaUsers, FaChartBar, FaArrowRight } from "react-icons/fa";
-import "../assets/css/Analytics.css";
+import { Card } from "react-bootstrap"
+import { FaEye, FaUsers, FaChartBar, FaArrowRight } from "react-icons/fa"
+import "../assets/css/Analytics.css"
 
 const AnalyticItem = ({ count, title, description }) => (
   <div className="analytics-item">
@@ -11,11 +11,11 @@ const AnalyticItem = ({ count, title, description }) => (
       <span className="analytics-desc">{description}</span>
     </div>
   </div>
-);
+)
 
 const Analytics = () => {
   return (
-    <Card className="analytics-card">
+    <Card className="analytics-card mt-2">
       <Card.Body>
         <div className="analytics-header">
           <h3 className="analytics-title">Analisi</h3>
@@ -44,7 +44,7 @@ const Analytics = () => {
         </a>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
-export default Analytics;
+export default Analytics

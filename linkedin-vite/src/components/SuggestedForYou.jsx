@@ -1,6 +1,6 @@
-import { Card, Button, Row, Col } from "react-bootstrap";
-import { FaEye, FaChevronRight } from "react-icons/fa";
-import "../assets/css/SuggestedForYou.css";
+import { Card, Button, Row, Col } from "react-bootstrap"
+import { FaEye, FaChevronRight } from "react-icons/fa"
+import "../assets/css/SuggestedForYou.css"
 
 const SuggestionCard = ({ title, description, buttonText }) => (
   <div className="suggestion-card">
@@ -12,11 +12,11 @@ const SuggestionCard = ({ title, description, buttonText }) => (
       {buttonText}
     </Button>
   </div>
-);
+)
 
 const SuggestedForYou = () => {
   return (
-    <Card className="suggested-card">
+    <Card className="suggested-card mt-2">
       <Card.Body>
         <div className="suggested-header">
           <h3 className="suggested-title">Consigliato per te</h3>
@@ -47,7 +47,7 @@ const SuggestedForYou = () => {
         </button>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
-export default SuggestedForYou;
+export default SuggestedForYou
