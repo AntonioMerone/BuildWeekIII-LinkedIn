@@ -13,8 +13,8 @@ function ProfileSidebar() {
     },
     {
       id: 2,
-      name: "Sara Quadrio",
-      role: "3D Simulation & Metaverse Specialist student at ITS...",
+      name: "Ilaria Salis",
+      role: "Case occupate, blocco navale via i negri dalle strade",
       img: "/img-profile.jpeg",
     },
     {
