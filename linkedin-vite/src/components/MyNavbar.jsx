@@ -9,10 +9,9 @@ import {
 } from "react-bootstrap";
 
 import logo from "../assets/linkedin-logo.webp";
-import user from "../assets/user.png";
 import "../assets/css/MyNavbar.css";
 
-function MyNavbar() {
+function MyNavbar({user}) {
   return (
     <Navbar bg="light" expand="lg" className="fixed-top py-0">
       <Container>
@@ -81,7 +80,7 @@ function MyNavbar() {
               title={
                 <div className="nav-user-title">
                   <img
-                    src={user}
+                    src={user.image}
                     alt="avatar"
                     className="rounded-circle"
                     width="28"
