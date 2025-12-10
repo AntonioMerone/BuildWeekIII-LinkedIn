@@ -4,7 +4,6 @@ import "../assets/css/Analytics.css";
 
 const AnalyticItem = ({ count, title, description }) => (
   <div className="analytics-item">
-    <Icon className="analytics-icon" />
     <div className="analytics-content">
       <span className="analytics-count">
         {count} {title}
