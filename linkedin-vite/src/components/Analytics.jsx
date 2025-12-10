@@ -1,12 +1,14 @@
-import { Card } from 'react-bootstrap';
-import { FaEye, FaUsers, FaChartBar, FaArrowRight } from 'react-icons/fa';
-import '../assets/css/Analytics.css';
+import { Card } from "react-bootstrap";
+import { FaEye, FaUsers, FaChartBar, FaArrowRight } from "react-icons/fa";
+import "../assets/css/Analytics.css";
 
-const AnalyticItem = ({ icon: Icon, count, title, description }) => (
+const AnalyticItem = ({ count, title, description }) => (
   <div className="analytics-item">
     <Icon className="analytics-icon" />
     <div className="analytics-content">
-      <span className="analytics-count">{count} {title}</span>
+      <span className="analytics-count">
+        {count} {title}
+      </span>
       <span className="analytics-desc">{description}</span>
     </div>
   </div>
@@ -18,25 +20,29 @@ const Analytics = () => {
       <Card.Body>
         <div className="analytics-header">
           <h3 className="analytics-title">Analisi</h3>
-          <span className="analytics-badge"><FaEye /> Solo per te</span>
+          <span className="analytics-badge">
+            <FaEye /> Solo per te
+          </span>
         </div>
-        
+
         <div className="analytics-grid">
-          <AnalyticItem 
+          <AnalyticItem
             icon={FaUsers}
             count="0"
             title="visualizzazioni del profilo"
             description="Aggiorna il tuo profilo per attrarre visitatori."
           />
-          <AnalyticItem 
+          <AnalyticItem
             icon={FaChartBar}
             count="0"
             title="impressioni del post"
             description="Crea un post per aumentare l'interesse. Ultimi 7 giorni"
           />
         </div>
-        
-        <a href="#" className="analytics-link">Mostra tutte le analisi <FaArrowRight /></a>
+
+        <a href="#" className="analytics-link">
+          Mostra tutte le analisi <FaArrowRight />
+        </a>
       </Card.Body>
     </Card>
   );
