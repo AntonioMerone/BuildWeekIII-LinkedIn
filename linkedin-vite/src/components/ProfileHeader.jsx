@@ -18,11 +18,7 @@ const ProfileHeader = ({ user }) => {
 
       <div className="profile-content">
         <div className="profile-photo-container">
-          <img
-            src="https://placebear.com/150/150"
-            alt={user.name}
-            className="profile-photo"
-          />
+          <img src={user.image} alt={user.name} className="profile-photo" />
           <button className="profile-add-photo-btn">
             <FaPlus />
           </button>
@@ -34,7 +30,9 @@ const ProfileHeader = ({ user }) => {
 
         <div className="profile-info">
           <div className="profile-name-section">
-            <h1 className="profile-name">{user.name}</h1>
+            <h1 className="profile-name">
+              {user.name} {user.surname}{" "}
+            </h1>
             <Button
               variant="outline-primary"
               size="sm"
@@ -43,9 +41,12 @@ const ProfileHeader = ({ user }) => {
               <FaCheckCircle /> Aggiungi badge di verifica
             </Button>
           </div>
-          <p className="profile-headline">{user.headline || "--"}</p>
+          <p className="profile-headline">
+            {user.bio ||
+              "io mi descrivo come tu descrivi la descrizione che descrive il descrittore del descritto su scritto "}
+          </p>
           <p className="profile-location">
-            {user.location} ·{" "}
+            {user.area} ·{" "}
             <a href="#" className="profile-contact-link">
               Informazioni di contatto
             </a>
