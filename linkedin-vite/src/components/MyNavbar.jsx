@@ -6,14 +6,16 @@ import {
   FormControl,
   NavDropdown,
   InputGroup,
-} from "react-bootstrap";
+  Button,
+} from "react-bootstrap"
 
-import logo from "/public/linkedin-logo.webp";
-import "../assets/css/MyNavbar.css";
-import { useSelector } from "react-redux";
+import logo from "/public/linkedin-logo.webp"
+import "../assets/css/MyNavbar.css"
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 function MyNavbar() {
-  const user = useSelector((state) => state.profileData);
+  const user = useSelector((state) => state.profileData)
   return (
     <Navbar bg="light" expand="lg" className="fixed-top py-0">
       <Container>
@@ -43,7 +45,7 @@ function MyNavbar() {
         {/* MENU COMPLETO – SOLO DA LG IN POI */}
         <Navbar.Collapse id="main-navbar" className="justify-content-center ">
           <Nav className="align-items-center">
-            <Nav.Link href="#" className="text-center me-3">
+            <Nav.Link as={Link} to="/" className="text-center me-3">
               <i
                 className="bi bi-house-door-fill"
                 style={{ fontSize: "18px" }}
@@ -82,7 +84,7 @@ function MyNavbar() {
               title={
                 <div className="nav-user-title">
                   <img
-                    src={user.image}
+                    src={user.image || "/default-avatar.png"}
                     alt="avatar"
                     className="rounded-circle"
                     width="28"
@@ -96,7 +98,13 @@ function MyNavbar() {
               id="dropdown-tu"
               align="end"
               className="ms-3 nav-tu"
-            ></NavDropdown>
+            >
+              <NavDropdown.Item as={Link} to="/profile">
+                <Button variant="primary" as={Link} to="/profile">
+                  Visualizza profilo
+                </Button>
+              </NavDropdown.Item>
+            </NavDropdown>
 
             {/* SEPARATORE */}
             <div
@@ -130,7 +138,7 @@ function MyNavbar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+  )
 }
 
-export default MyNavbar;
+export default MyNavbar

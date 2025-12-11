@@ -1,35 +1,39 @@
-import React from "react"
+import { useEffect, useState } from "react"
 import { Card, Button, Image } from "react-bootstrap"
-
 import "./ProfileSidebar.css"
 
 function ProfileSidebar() {
-  const people = [
-    {
-      id: 1,
-      name: "Giuseppe Simone ",
-      role: "Cosa ci a questo",
-      img: "https://i1.sndcdn.com/artworks-000075752075-bktbts-t500x500.jpg",
-    },
-    {
-      id: 2,
-      name: "Ilaria Salis",
-      role: "Case occupate, blocco navale via i negri dalle strade",
-      img: "https://dimages2.corriereobjects.it/files/main_image_mobile/uploads/2024/04/26/662bcf3b212f8.jpeg",
-    },
-    {
-      id: 3,
-      name: "Er Brasiliano",
-      role: "Non conosco il tisom",
-      img: "https://www.today.it/~media/horizontal-hi/27302640978695/brasiliano-foto-instagram-2.jpg",
-    },
-    {
-      id: 4,
-      name: "Rocco Siffredi",
-      role: "La grande mazza del West",
-      img: "https://static.wixstatic.com/media/35a551_a82dcef3ee1c4c2abc3e91e10aaa7db5~mv2.jpg/v1/fill/w_816,h_816,al_c,q_85/35a551_a82dcef3ee1c4c2abc3e91e10aaa7db5~mv2.jpg",
-    },
-  ]
+  const [people, setPeople] = useState([])
+
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w"
+
+  useEffect(() => {
+    fetchPeople()
+  }, [])
+
+  const fetchPeople = async () => {
+    try {
+      const res = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+
+      if (res.ok) {
+        const data = await res.json()
+        // prendo solo 10 utenti per non riempire tutta la sidebar
+        setPeople(data.slice(0, 10))
+      } else {
+        throw new Error("Errore nel recupero utenti")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div style={{ width: "100%" }}>
@@ -41,30 +45,37 @@ function ProfileSidebar() {
         />
       </div>
 
+      {/* -------------------------
+              CARD 1
+      ---------------------------*/}
       <Card className="sidebar-card mb-2 p-3">
         <h6 className="sidebar-title">Altri profili per te</h6>
 
-        {people.map((person) => (
+        {people.slice(0, 4).map((person) => (
           <div
-            key={person.id}
+            key={person._id}
             className="d-flex align-items-start profile-item"
           >
             <Image
-              src={person.img}
+              src={person.image}
               roundedCircle
               width={48}
               height={48}
               className="me-3 object-fit-cover"
               style={{ cursor: "pointer" }}
             />
+
             <div className="flex-grow-1">
               <div className="d-flex align-items-center mb-1">
-                <span className="profile-name">{person.name}</span>
-
+                <span className="profile-name">
+                  {person.name} {person.surname}
+                </span>
                 <span className="degree-badge">· 3°+</span>
               </div>
 
-              <div className="profile-role">{person.role}</div>
+              <div className="profile-role">
+                {person.title || "Nessun ruolo"}
+              </div>
 
               <Button
                 variant="outline-secondary"
@@ -77,30 +88,37 @@ function ProfileSidebar() {
           </div>
         ))}
       </Card>
+
+      {/* -------------------------
+              CARD 2
+      ---------------------------*/}
       <Card className="sidebar-card mb-2 p-3">
         <h6 className="sidebar-title">Persone che potresti conoscere</h6>
 
-        {people.map((person) => (
+        {people.slice(4, 8).map((person) => (
           <div
-            key={person.id}
+            key={person._id}
             className="d-flex align-items-start profile-item"
           >
             <Image
-              src={person.img}
+              src={person.image}
               roundedCircle
               width={48}
               height={48}
               className="me-3 object-fit-cover"
-              style={{ cursor: "pointer" }}
             />
+
             <div className="flex-grow-1">
               <div className="d-flex align-items-center mb-1">
-                <span className="profile-name">{person.name}</span>
-
-                <span className="degree-badge">· 3°+</span>
+                <span className="profile-name">
+                  {person.name} {person.surname}
+                </span>
+                <span className="degree-badge">· 2°</span>
               </div>
 
-              <div className="profile-role">{person.role}</div>
+              <div className="profile-role">
+                {person.title || "Nessun ruolo"}
+              </div>
 
               <Button
                 variant="outline-secondary"
@@ -113,30 +131,39 @@ function ProfileSidebar() {
           </div>
         ))}
       </Card>
+
+      {/* -------------------------
+              CARD 3
+      ---------------------------*/}
       <Card className="sidebar-card mb-2 p-3">
         <h6 className="sidebar-title">Potrebbe interessarti</h6>
 
-        {people.slice(0, 2).map((person) => (
+        {people.slice(8, 10).map((person) => (
           <div
-            key={person.id}
+            key={person._id}
             className="d-flex align-items-start profile-item"
           >
             <Image
-              src={person.img}
+              src={person.image}
               roundedCircle
               width={48}
               height={48}
               className="me-3 object-fit-cover"
-              style={{ cursor: "pointer" }}
             />
+
             <div className="flex-grow-1">
               <div className="d-flex align-items-center mb-1">
-                <span className="profile-name">{person.name}</span>
+                <span className="profile-name">
+                  {person.name} {person.surname}
+                </span>
                 <span className="degree-badge">· 3°+</span>
               </div>
-              <span className="text-secondary "> 876.324 followers </span>
 
-              <div className="profile-role">{person.role}</div>
+              <span className="text-secondary"> 876.324 followers </span>
+
+              <div className="profile-role">
+                {person.title || "Nessun ruolo"}
+              </div>
 
               <Button
                 variant="outline-secondary"
