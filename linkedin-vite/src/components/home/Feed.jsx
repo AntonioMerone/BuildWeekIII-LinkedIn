@@ -1,0 +1,175 @@
+import { Card, Button } from "react-bootstrap";
+import {
+  FaVideo,
+  FaImage,
+  FaFileAlt,
+  FaChevronDown,
+  FaLinkedin,
+  FaArrowRight,
+  FaEllipsisH,
+  FaThumbsUp,
+  FaComment,
+  FaShare,
+  FaPaperPlane,
+} from "react-icons/fa";
+import "../../assets/css/Feed.css";
+
+const CreatePostBox = () => (
+  <Card className="create-post-card">
+    <div className="create-post-top">
+      <img
+        src="https://placebear.com/48/48"
+        alt="Profile"
+        className="create-post-avatar"
+      />
+      <button className="create-post-input">Crea un post</button>
+    </div>
+    <div className="create-post-actions">
+      <button className="create-post-action">
+        <FaVideo className="create-post-action-icon video" />
+        Video
+      </button>
+      <button className="create-post-action">
+        <FaImage className="create-post-action-icon photo" />
+        Foto
+      </button>
+      <button className="create-post-action">
+        <FaFileAlt className="create-post-action-icon article" />
+        Scrivi un articolo
+      </button>
+    </div>
+  </Card>
+);
+
+const FeedFilter = () => (
+  <div className="feed-filter">
+    <div className="feed-filter-line" />
+    <span>Seleziona la visualizzazione del feed:</span>
+    <button className="feed-filter-select">
+      Più rilevanti per primi <FaChevronDown size={10} />
+    </button>
+  </div>
+);
+
+const SuggestionItem = ({ name, role, degree, image, verified }) => (
+  <div className="suggestion-item">
+    <img src={image} alt={name} className="suggestion-avatar" />
+    <div className="suggestion-content">
+      <div className="suggestion-name">
+        {name}
+        {verified && <FaLinkedin className="suggestion-badge" />}
+        <span className="suggestion-degree">• {degree}</span>
+      </div>
+      <p className="suggestion-role">{role}</p>
+      <Button
+        variant="outline-primary"
+        size="sm"
+        className="suggestion-follow-btn"
+      >
+        + Segui
+      </Button>
+    </div>
+  </div>
+);
+
+const SuggestionsCard = () => {
+  const suggestions = [
+    {
+      name: "Bill Gates",
+      role: "Chair, Gates Foundation and Founder, Breakthrough Energy",
+      degree: "3° e oltre",
+      verified: true,
+      image: "https://placebear.com/60/60",
+    },
+    {
+      name: "Vincenzo Schettini",
+      role: "#lafisicachecipiace",
+      degree: "3° e oltre",
+      verified: false,
+      image: "https://placebear.com/61/61",
+    },
+    {
+      name: "Pietro Innocenti",
+      role: "CEO at Porsche Italia S.p.a.",
+      degree: "3° e oltre",
+      verified: true,
+      image: "https://placebear.com/62/62",
+    },
+  ];
+
+  return (
+    <Card className="suggestions-card">
+      <h3 className="suggestions-title">Consigli per te</h3>
+      {suggestions.map((s, i) => (
+        <SuggestionItem key={i} {...s} />
+      ))}
+      <a href="#" className="suggestions-show-more">
+        Visualizza altro <FaArrowRight />
+      </a>
+    </Card>
+  );
+};
+
+const PostCard = ({ author, followers, sponsored, text, image }) => (
+  <Card className="post-card">
+    <div className="post-header">
+      <img src={author.image} alt={author.name} className="post-avatar" />
+      <div className="post-author-info">
+        <div className="post-author-name">{author.name}</div>
+        <div className="post-author-followers">{followers} follower</div>
+        {sponsored && <div className="post-sponsored">Post sponsorizzato</div>}
+      </div>
+      <button className="post-menu-btn">
+        <FaEllipsisH />
+      </button>
+    </div>
+
+    <div className="post-content">
+      <p className="post-text">
+        {text} <span className="post-more">... altro</span>
+      </p>
+    </div>
+
+    {image && <img src={image} alt="Post" className="post-image" />}
+
+    <div className="post-actions">
+      <button className="post-action-btn">
+        <FaThumbsUp className="post-action-icon" /> Consiglia
+      </button>
+      <button className="post-action-btn">
+        <FaComment className="post-action-icon" /> Commenta
+      </button>
+      <button className="post-action-btn">
+        <FaShare className="post-action-icon" /> Diffondi
+      </button>
+      <button className="post-action-btn">
+        <FaPaperPlane className="post-action-icon" /> Invia
+      </button>
+    </div>
+  </Card>
+);
+
+const Feed = () => {
+  const posts = [
+    {
+      author: { name: "Confapi Brescia", image: "https://placebear.com/63/63" },
+      followers: "3.431",
+      sponsored: true,
+      text: "🎬 Nuova edizione delle Video News di Confapi Brescia condotta da Camilla Cortelazzo",
+      image: "https://placebear.com/600/400",
+    },
+  ];
+
+  return (
+    <div className="feed">
+      <CreatePostBox />
+      <FeedFilter />
+      <SuggestionsCard />
+      {posts.map((post, i) => (
+        <PostCard key={i} {...post} />
+      ))}
+    </div>
+  );
+};
+
+export default Feed;
