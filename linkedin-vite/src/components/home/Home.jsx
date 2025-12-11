@@ -5,6 +5,7 @@ import LeftSidebar from "./LeftSidebar";
 import Feed from "./Feed";
 import HomeFeed from "./HomeFeed";
 import ProfileFooter from "../ProfileFooter";
+import HomeFooter from "../HomeFooter";
 export default function Home() {
   return (
     <>
@@ -22,7 +23,7 @@ export default function Home() {
           </Col>
           <Col xs={12} lg={3}>
             <SidebarDx />
-            <ProfileFooter />
+            <HomeFooter />
           </Col>
         </Row>
       </Container>
