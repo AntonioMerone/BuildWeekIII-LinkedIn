@@ -1,6 +1,6 @@
-import { Card, Button } from "react-bootstrap";
-import { FaCamera, FaPencilAlt, FaPlus, FaCheckCircle } from "react-icons/fa";
-import "../assets/css/ProfileHeader.css";
+import { Card, Button } from "react-bootstrap"
+import { FaCamera, FaPencilAlt, FaPlus, FaCheckCircle } from "react-icons/fa"
+import "../assets/css/ProfileHeader.css"
 
 const ProfileHeader = ({ user }) => {
   return (
@@ -18,7 +18,11 @@ const ProfileHeader = ({ user }) => {
 
       <div className="profile-content">
         <div className="profile-photo-container">
-          <img src={user.image} alt={user.name} className="profile-photo" />
+          <img
+            src={user.image || "/default-avatar.png"}
+            alt={user.name}
+            className="profile-photo"
+          />
           <button className="profile-add-photo-btn">
             <FaPlus />
           </button>
@@ -69,7 +73,7 @@ const ProfileHeader = ({ user }) => {
         </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default ProfileHeader;
+export default ProfileHeader

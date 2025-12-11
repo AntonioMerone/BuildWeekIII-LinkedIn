@@ -1,5 +1,4 @@
 import { Card } from "react-bootstrap"
-// import "../assets/css/RightSidebar.css"
 
 function SidebarDx() {
   return (
