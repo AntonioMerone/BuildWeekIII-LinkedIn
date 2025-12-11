@@ -1,6 +1,6 @@
-import { Card, Button } from "react-bootstrap"
-import { FaCamera, FaPencilAlt, FaPlus, FaCheckCircle } from "react-icons/fa"
-import "../assets/css/ProfileHeader.css"
+import { Card, Button } from "react-bootstrap";
+import { FaCamera, FaPencilAlt, FaPlus, FaCheckCircle } from "react-icons/fa";
+import "../assets/css/ProfileHeader.css";
 
 const ProfileHeader = ({ user }) => {
   return (
@@ -46,7 +46,7 @@ const ProfileHeader = ({ user }) => {
               "io mi descrivo come tu descrivi la descrizione che descrive il descrittore del descritto su scritto"}
           </p>
           <p className="profile-location">
-            {user.area}
+            {user.area || "Neandertal      "}
             <a href="#" className="profile-contact-link">
               Informazioni di contatto
             </a>
@@ -69,7 +69,7 @@ const ProfileHeader = ({ user }) => {
         </div>
       </div>
     </Card>
-  )
-}
+  );
+};
 
-export default ProfileHeader
+export default ProfileHeader;
