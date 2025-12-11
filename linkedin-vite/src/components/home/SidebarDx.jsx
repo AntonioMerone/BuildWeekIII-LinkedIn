@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap"
 
 function SidebarDx() {
   return (
-    <Card className="p-3 rounded-3 shadow-sm">
+    <Card className="p-3 rounded-3 shadow-sm mt-3 mt-sm-3 mt-md-3 mt-lg-0">
       {/* TITOLO */}
       <h6 className="fw-bold mb-3">LinkedIn Notizie</h6>
 
