@@ -6,7 +6,56 @@ import Feed from "./Feed";
 import HomeFeed from "./HomeFeed";
 import ProfileFooter from "../ProfileFooter";
 import HomeFooter from "../HomeFooter";
+import { useDispatch } from "react-redux"
+import { useState, useEffect } from "react"
+import { setPostsData } from "../../reducers/postsReducerData";
+
+import setPostData from "./HomeFeed";
+
 export default function Home() {
+  const dispatch = useDispatch();
+
+  const [localPosts, setLocalPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  const baseEndpoint = "https://striveschool-api.herokuapp.com/api/posts/";
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w";
+
+  useEffect(() => {
+    getPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getPosts = async () => {
+    try {
+      const response = await fetch(baseEndpoint, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+	      
+        const data = await response.json();
+        const selectedPosts = data.slice(-11).reverse();
+        setLocalPosts(selectedPosts);
+        dispatch(setPostsData(selectedPosts));
+
+
+        setLoading(false);
+      } else {
+        console.log("Error fetching posts");
+        setError(true);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setError(true);
+      setLoading(false);
+    }
+  };
   return (
     <>
       <MyNavbar></MyNavbar>
