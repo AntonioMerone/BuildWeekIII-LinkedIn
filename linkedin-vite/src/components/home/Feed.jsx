@@ -98,7 +98,7 @@ const SuggestionsCard = () => {
   ];
 
   return (
-    <Card className="suggestions-card">
+    <Card className="suggestions-card mb-3">
       <h3 className="suggestions-title">Consigli per te</h3>
       {suggestions.map((s, i) => (
         <SuggestionItem key={i} {...s} />
@@ -150,24 +150,11 @@ const PostCard = ({ author, followers, sponsored, text, image }) => (
 );
 
 const Feed = () => {
-  const posts = [
-    {
-      author: { name: "Confapi Brescia", image: "https://placebear.com/63/63" },
-      followers: "3.431",
-      sponsored: true,
-      text: "🎬 Nuova edizione delle Video News di Confapi Brescia condotta da Camilla Cortelazzo",
-      image: "https://placebear.com/600/400",
-    },
-  ];
-
   return (
     <div className="feed">
       <CreatePostBox />
       <FeedFilter />
       <SuggestionsCard />
-      {posts.map((post, i) => (
-        <PostCard key={i} {...post} />
-      ))}
     </div>
   );
 };

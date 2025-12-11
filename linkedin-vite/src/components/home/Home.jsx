@@ -3,6 +3,7 @@ import MyNavbar from "../MyNavbar";
 import SidebarDx from "./SidebarDx";
 import LeftSidebar from "./LeftSidebar";
 import Feed from "./Feed";
+import HomeFeed from "./HomeFeed";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           </Col>
           <Col lg={6}>
             <Feed />
+            <HomeFeed />
           </Col>
           <Col xs={12} lg={3}>
             <SidebarDx />
