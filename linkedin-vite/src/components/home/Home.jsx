@@ -1,6 +1,8 @@
-import { Container, Row, Col } from "react-bootstrap"
-import MyNavbar from "../MyNavbar"
-import SidebarDx from "./SidebarDx"
+import { Container, Row, Col } from "react-bootstrap";
+import MyNavbar from "../MyNavbar";
+import SidebarDx from "./SidebarDx";
+import LeftSidebar from "./LeftSidebar";
+import Feed from "./Feed";
 
 export default function Home() {
   return (
@@ -8,13 +10,17 @@ export default function Home() {
       <MyNavbar></MyNavbar>
       <Container style={{ paddingTop: "5.5rem" }}>
         <Row>
-          <Col lg={3}></Col>
-          <Col lg={6}></Col>
+          <Col lg={3}>
+            <LeftSidebar />{" "}
+          </Col>
+          <Col lg={6}>
+            <Feed />
+          </Col>
           <Col xs={12} lg={3}>
             <SidebarDx />
           </Col>
         </Row>
       </Container>
     </>
-  )
+  );
 }
