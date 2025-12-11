@@ -6,12 +6,14 @@ import {
   FormControl,
   NavDropdown,
   InputGroup,
-} from "react-bootstrap"
+} from "react-bootstrap";
 
-import logo from "/public/linkedin-logo.webp"
-import "../assets/css/MyNavbar.css"
+import logo from "/public/linkedin-logo.webp";
+import "../assets/css/MyNavbar.css";
+import { useSelector } from "react-redux";
 
-function MyNavbar({ user }) {
+function MyNavbar() {
+  const user = useSelector((state) => state.profileData);
   return (
     <Navbar bg="light" expand="lg" className="fixed-top py-0">
       <Container>
@@ -128,7 +130,7 @@ function MyNavbar({ user }) {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
+  );
 }
 
-export default MyNavbar
+export default MyNavbar;

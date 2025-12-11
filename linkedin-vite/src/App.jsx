@@ -29,21 +29,6 @@ function Linkedin() {
   const baseEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w";
-  const user = {
-    _id: "653f5b02b397340014d5e7fa",
-    name: "Simone",
-    surname: "D'Angelo",
-    email: "simone.dangelo636@gmail.com",
-    username: "simo",
-    title: "",
-    bio: "",
-    area: "",
-    image:
-      "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-    createdAt: "2023-10-30T07:28:02.447Z",
-    updatedAt: "2023-10-30T07:28:02.447Z",
-    v: 0,
-  };
 
   useEffect(() => {
     getProfileData();
@@ -71,7 +56,7 @@ function Linkedin() {
     <>
       <Router>
         <Routes>
-          <Route path="/profile" element={<LinkedinProfile user={user} />} />
+          <Route path="/profile" element={<LinkedinProfile />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>
