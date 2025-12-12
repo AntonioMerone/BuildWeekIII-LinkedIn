@@ -19,7 +19,7 @@ import { useState } from "react"
 // TODO questo va convertito in actions di stefano
 import { setPostsData } from "../../reducers/postsReducerData"
 
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 const CreatePostBox = () => {
   const dispatch = useDispatch()
@@ -27,7 +27,7 @@ const CreatePostBox = () => {
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w"
   const [localPosts, setLocalPosts] = useState([])
-
+  const user = useSelector((state) => state.profileData)
   const [text, setText] = useState("")
 
   const getPosts = async () => {
@@ -93,11 +93,7 @@ const CreatePostBox = () => {
       />
 
       <div className="create-post-top">
-        <img
-          src="https://placebear.com/48/48"
-          alt="Profile"
-          className="create-post-avatar"
-        />
+        <img src={user.image} alt="Profile" className="create-post-avatar" />
         <button onClick={handleSubmit} className="create-post-input">
           Crea un post
         </button>

@@ -99,7 +99,7 @@ function MyNavbar() {
               align="end"
               className="ms-3 nav-tu"
             >
-              <NavDropdown.Item as={Link} to="/profile">
+              <NavDropdown.Item as="div">
                 <Button variant="primary" as={Link} to="/profile">
                   Visualizza profilo
                 </Button>

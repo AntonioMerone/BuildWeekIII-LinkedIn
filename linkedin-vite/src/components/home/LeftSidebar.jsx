@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap";
+import { Card } from "react-bootstrap"
 import {
   FaPlus,
   FaBookmark,
@@ -6,12 +6,12 @@ import {
   FaNewspaper,
   FaCalendarAlt,
   FaChevronDown,
-} from "react-icons/fa";
-import "../../assets/css/LeftSidebar.css";
-import { useSelector } from "react-redux";
+} from "react-icons/fa"
+import "../../assets/css/LeftSidebar.css"
+import { useSelector } from "react-redux"
 
 function MiniProfileCard() {
-  const user = useSelector((state) => state.profileData);
+  const user = useSelector((state) => state.profileData)
   return (
     <Card className="mini-profile-card">
       <img
@@ -22,7 +22,7 @@ function MiniProfileCard() {
       <div className="mini-profile-content">
         <div className="mini-profile-add-btn">
           <img
-            src="https://placebear.com/72/72"
+            src={user.image}
             alt={user.name}
             className="mini-profile-photo"
           />
@@ -39,7 +39,7 @@ function MiniProfileCard() {
         <FaPlus /> Esperienza
       </a>
     </Card>
-  );
+  )
 }
 
 const ConnectionsCard = () => (
@@ -52,7 +52,7 @@ const ConnectionsCard = () => (
       <FaChevronDown size={12} />
     </a>
   </Card>
-);
+)
 
 const PremiumCard = () => (
   <Card className="premium-card">
@@ -62,7 +62,7 @@ const PremiumCard = () => (
       Prova Premium per 0 EUR
     </a>
   </Card>
-);
+)
 
 const NavItemsCard = () => (
   <Card className="sidebar-nav-card">
@@ -83,7 +83,7 @@ const NavItemsCard = () => (
       Eventi
     </a>
   </Card>
-);
+)
 
 const LeftSidebar = ({ user }) => {
   return (
@@ -93,7 +93,7 @@ const LeftSidebar = ({ user }) => {
       <PremiumCard />
       <NavItemsCard />
     </div>
-  );
-};
+  )
+}
 
-export default LeftSidebar;
+export default LeftSidebar
