@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Card, Button, Image, Spinner } from "react-bootstrap"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Card, Button, Image, Spinner } from "react-bootstrap";
 import {
   HandThumbsUp,
   ChatText,
@@ -9,27 +9,27 @@ import {
   ThreeDots,
   X,
   GlobeAmericas,
-} from "react-bootstrap-icons"
+} from "react-bootstrap-icons";
 
-import { setPostsData } from "../../reducers/postsReducerData"
+import { setPostsData } from "../../reducers/postsReducerData";
 
 function HomeFeed() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const posts = useSelector((state) => state.postsData)
+  const posts = useSelector((state) => state.postsData);
 
-  const [localPosts, setLocalPosts] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const [localPosts, setLocalPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  const baseEndpoint = "https://striveschool-api.herokuapp.com/api/posts/"
+  const baseEndpoint = "https://striveschool-api.herokuapp.com/api/posts/";
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w"
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w";
 
   useEffect(() => {
-    getPosts()
+    getPosts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   const getPosts = async () => {
     try {
@@ -37,26 +37,26 @@ function HomeFeed() {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
+      });
 
       if (response.ok) {
-        const data = await response.json()
-        const selectedPosts = data.slice(-11).reverse()
-        setLocalPosts(selectedPosts)
-        dispatch(setPostsData(selectedPosts))
+        const data = await response.json();
+        const selectedPosts = data.slice(-11).reverse();
+        setLocalPosts(selectedPosts);
+        dispatch(setPostsData(selectedPosts));
 
-        setLoading(false)
+        setLoading(false);
       } else {
-        console.log("Error fetching posts")
-        setError(true)
-        setLoading(false)
+        console.log("Error fetching posts");
+        setError(true);
+        setLoading(false);
       }
     } catch (error) {
-      console.log(error)
-      setError(true)
-      setLoading(false)
+      console.log(error);
+      setError(true);
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <>
@@ -228,7 +228,7 @@ function HomeFeed() {
         }
       `}</style>
     </>
-  )
+  );
 }
 
-export default HomeFeed
+export default HomeFeed;

@@ -1,6 +1,6 @@
-import { Card, Button } from "react-bootstrap"
-import { FaTimes, FaUniversity } from "react-icons/fa"
-import "../assets/css/Education.css"
+import { Card, Button } from "react-bootstrap";
+import { FaTimes, FaUniversity } from "react-icons/fa";
+import "../assets/css/Education.css";
 
 const EducationItem = ({ school, degree, period }) => (
   <div className="education-item">
@@ -13,7 +13,7 @@ const EducationItem = ({ school, degree, period }) => (
       <p className="education-item-period">{period}</p>
     </div>
   </div>
-)
+);
 
 const Education = () => {
   return (
@@ -42,7 +42,7 @@ const Education = () => {
         </Button>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default Education
+export default Education;
