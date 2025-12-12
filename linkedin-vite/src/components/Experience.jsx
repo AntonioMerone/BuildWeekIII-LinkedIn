@@ -1,6 +1,6 @@
-import { Card, Button } from "react-bootstrap"
-import { FaTimes, FaBriefcase } from "react-icons/fa"
-import "../assets/css/Experience.css"
+import { Card, Button } from "react-bootstrap";
+import { FaTimes, FaBriefcase } from "react-icons/fa";
+import "../assets/css/Experience.css";
 
 const ExperienceItem = ({ title, company, period }) => (
   <div className="experience-item">
@@ -13,7 +13,7 @@ const ExperienceItem = ({ title, company, period }) => (
       <p className="experience-item-period">{period}</p>
     </div>
   </div>
-)
+);
 
 const Experience = () => {
   return (
@@ -42,7 +42,7 @@ const Experience = () => {
         </Button>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default Experience
+export default Experience;

@@ -4,6 +4,7 @@ import Analytics from "./Analytics";
 import Activity from "./Activity";
 import Experience from "./Experience";
 import Education from "./Education";
+import Skills from "./Skills";
 import { useSelector } from "react-redux";
 
 export default function Profile() {
@@ -17,6 +18,7 @@ export default function Profile() {
       <Analytics />
       <Activity />
       <Experience />
+      <Skills />
       <Education />
     </>
   );
