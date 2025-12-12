@@ -93,8 +93,10 @@ const CreatePostBox = () => {
       />
 
       <div className="create-post-top">
-        <img
-          src="https://placebear.com/48/48"
+	          <img
+          src={
+            user.image && user.image !== "" ? user.image : "/default-avatar.png"
+          }
           alt="Profile"
           className="create-post-avatar"
         />
