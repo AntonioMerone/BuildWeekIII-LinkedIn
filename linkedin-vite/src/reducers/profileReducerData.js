@@ -1,5 +1,4 @@
-// FIXME al posto di null mettere un payload esempio
-const initialProfileData = {
+const emptyProfile = {
   _id: "",
   name: "",
   surname: "",
@@ -14,24 +13,17 @@ const initialProfileData = {
   v: 0,
 };
 
-// ESEMPIO:
-// const initialProfileData = {
-//   id: null,
-//   name: '',
-//   ...
-// }
-
 /* carica i dati nello "slice" del componente Profile */
-export function profileDataReducer(state = initialProfileData, action) {
+export function profileDataReducer(state = emptyProfile, action) {
   switch (action.type) {
     case "SET_PROFILE_DATA":
-      return action.payload;
+      return action.payload
     default:
       return state;
   }
 }
 
-// helper
+// helper data e` un profile
 export const setProfileData = (data) => ({
   type: "SET_PROFILE_DATA",
   payload: data,

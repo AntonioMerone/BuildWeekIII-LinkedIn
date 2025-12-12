@@ -16,7 +16,9 @@ import { setPostsData } from "../../reducers/postsReducerData";
 function HomeFeed() {
   const dispatch = useDispatch();
 
-  const posts = useSelector((state) => state.postsData);
+  const posts = useSelector(state => state.postsData) || [];
+
+
 
   const [localPosts, setLocalPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,10 +42,12 @@ function HomeFeed() {
       });
 
       if (response.ok) {
+	      
         const data = await response.json();
         const selectedPosts = data.slice(-11).reverse();
         setLocalPosts(selectedPosts);
         dispatch(setPostsData(selectedPosts));
+
 
         setLoading(false);
       } else {

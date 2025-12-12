@@ -1,15 +1,15 @@
-export function postsDataReducer(state = [], action) {
+export function experienceDataReducer(state = [], action) {
 	switch (action.type) {
 		/* mi aspetto un array di post e li metto al posto di sate */
-		case "SET_POSTS_DATA":
+		case "SET_EXPERIENCE_DATA":
 			return action.payload;
 		default:
 			return state;
 	}
 }
 
-export const setPostsData = (data) => ({
-	type: "SET_POSTS_DATA",
+export const getExperienceData = (data) => ({
+	type: "SET_EXPERIENCE_DATA",
 	payload: data,
 });
 
