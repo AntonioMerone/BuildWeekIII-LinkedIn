@@ -121,7 +121,7 @@ const FeedFilter = () => (
   <div className="feed-filter">
     <div className="feed-filter-line" />
     <span>Seleziona la visualizzazione del feed:</span>
-    <button className="feed-filter-select">
+    <button className="feed-filter-select border-0">
       Più rilevanti per primi <FaChevronDown size={10} />
     </button>
   </div>
