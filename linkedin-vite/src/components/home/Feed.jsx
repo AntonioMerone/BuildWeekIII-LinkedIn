@@ -19,7 +19,7 @@ import { useState } from "react"
 // TODO questo va convertito in actions di stefano
 import { setPostsData } from "../../reducers/postsReducerData"
 
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 const CreatePostBox = () => {
   const dispatch = useDispatch()
@@ -27,7 +27,7 @@ const CreatePostBox = () => {
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w"
   const [localPosts, setLocalPosts] = useState([])
-
+  const user = useSelector((state) => state.profileData)
   const [text, setText] = useState("")
 
   const getPosts = async () => {
@@ -85,7 +85,7 @@ const CreatePostBox = () => {
   return (
     <Card className="create-post-card">
       <textarea
-        className="form-control"
+        className="form-control mb-2"
         id="msg"
         rows="3"
         value={text}
@@ -93,7 +93,7 @@ const CreatePostBox = () => {
       />
 
       <div className="create-post-top">
-	          <img
+        <img
           src={
             user.image && user.image !== "" ? user.image : "/default-avatar.png"
           }
@@ -127,7 +127,7 @@ const FeedFilter = () => (
   <div className="feed-filter">
     <div className="feed-filter-line" />
     <span>Seleziona la visualizzazione del feed:</span>
-    <button className="feed-filter-select">
+    <button className="feed-filter-select border-0">
       Più rilevanti per primi <FaChevronDown size={10} />
     </button>
   </div>
