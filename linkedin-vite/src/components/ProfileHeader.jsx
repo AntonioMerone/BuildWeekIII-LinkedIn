@@ -19,7 +19,11 @@ const ProfileHeader = ({ user }) => {
       <div className="profile-content">
         <div className="profile-photo-container">
           <img
-            src={user.image || "/default-avatar.png"}
+            src={
+              user.image && user.image !== ""
+                ? user.image
+                : "/default-avatar.png"
+            }
             alt={user.name}
             className="profile-photo"
           />
