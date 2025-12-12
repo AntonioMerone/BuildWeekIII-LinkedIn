@@ -1,5 +1,5 @@
-import React from "react";
-import "./HomeFooter.css";
+import React from "react"
+import "./HomeFooter.css"
 
 const HomeFooter = () => {
   // SVG per la freccina verso il basso (riutilizzabile)
@@ -11,10 +11,10 @@ const HomeFooter = () => {
     >
       <path d="M8 11L3 6h10z" />
     </svg>
-  );
+  )
 
   return (
-    <footer className="ln-footer">
+    <footer className="ln-footer position-sticky" style={{ top: "2.5rem" }}>
       <hr />
       <ul className="ln-links">
         <li>
@@ -58,7 +58,7 @@ const HomeFooter = () => {
         <span className="copy-text"> LinkedIn Corporation © 2025</span>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default HomeFooter;
+export default HomeFooter

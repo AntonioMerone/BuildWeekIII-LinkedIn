@@ -12,17 +12,22 @@ import { useSelector } from "react-redux"
 
 function MiniProfileCard() {
   const user = useSelector((state) => state.profileData)
+
   return (
     <Card className="mini-profile-card">
       <img
-        src="https://placebear.com/400/100"
+        src="https://picsum.photos/326"
         alt="Cover"
         className="mini-profile-cover"
       />
       <div className="mini-profile-content">
         <div className="mini-profile-add-btn">
           <img
-            src={user.image}
+            src={
+              user.image && user.image !== ""
+                ? user.image
+                : "/default-avatar.png"
+            }
             alt={user.name}
             className="mini-profile-photo"
           />
@@ -31,9 +36,10 @@ function MiniProfileCard() {
           </span>
         </div>
         <a href="#" className="mini-profile-name">
-          {user.name}
+          {user.name} {user.surname}
         </a>
-        <p className="mini-profile-location">{user.location}</p>
+        <p className="mini-profile-location fs-6">{user.title}</p>
+        <p className="mini-profile-location mt-1">{user.area}</p>
       </div>
       <a href="#" className="mini-profile-link">
         <FaPlus /> Esperienza

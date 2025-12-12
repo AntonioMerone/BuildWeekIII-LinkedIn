@@ -55,7 +55,7 @@ const ProfileHeader = ({ user }) => {
           </p>
           <p className="profile-location">
             {user.area || "Neandertal      "}
-            <a href="#" className="profile-contact-link">
+            <a href="#" className="profile-contact-link ms-2">
               Informazioni di contatto
             </a>
           </p>

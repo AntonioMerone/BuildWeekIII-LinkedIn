@@ -29,6 +29,7 @@ const CreatePostBox = () => {
   const [localPosts, setLocalPosts] = useState([])
   const user = useSelector((state) => state.profileData)
   const [text, setText] = useState("")
+  console.log(user)
 
   const getPosts = async () => {
     try {
@@ -93,7 +94,13 @@ const CreatePostBox = () => {
       />
 
       <div className="create-post-top">
-        <img src={user.image} alt="Profile" className="create-post-avatar" />
+        <img
+          src={
+            user.image && user.image !== "" ? user.image : "/default-avatar.png"
+          }
+          alt="Profile"
+          className="create-post-avatar"
+        />
         <button onClick={handleSubmit} className="create-post-input">
           Crea un post
         </button>
