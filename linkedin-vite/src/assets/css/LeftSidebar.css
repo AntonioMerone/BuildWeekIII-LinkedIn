@@ -22,6 +22,9 @@
   text-align: center;
   padding: 0 16px 16px;
   margin-top: -40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mini-profile-photo {
@@ -33,8 +36,10 @@
 }
 
 .mini-profile-add-btn {
-  position: relative;
-  display: inline-block;
+  position: relative; /* riferimento per l’icona */
+  display: inline-flex; /* mantiene foto + icona insieme */
+  justify-content: center;
+  margin-bottom: 8px; /* spazio sotto la foto */
 }
 
 .mini-profile-add-icon {
@@ -58,6 +63,7 @@
   font-weight: 600;
   color: rgba(0, 0, 0, 0.9);
   margin: 8px 0 4px;
+  text-decoration: none;
 }
 
 .mini-profile-name:hover {

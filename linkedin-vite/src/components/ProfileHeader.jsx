@@ -19,7 +19,11 @@ const ProfileHeader = ({ user }) => {
       <div className="profile-content">
         <div className="profile-photo-container">
           <img
-            src={user.image || "/default-avatar.png"}
+            src={
+              user.image && user.image !== ""
+                ? user.image
+                : "/default-avatar.png"
+            }
             alt={user.name}
             className="profile-photo"
           />
@@ -51,7 +55,7 @@ const ProfileHeader = ({ user }) => {
           </p>
           <p className="profile-location">
             {user.area || "Neandertal      "}
-            <a href="#" className="profile-contact-link">
+            <a href="#" className="profile-contact-link ms-2">
               Informazioni di contatto
             </a>
           </p>

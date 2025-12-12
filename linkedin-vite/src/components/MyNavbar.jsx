@@ -58,7 +58,7 @@ function MyNavbar() {
               <div className="small">Rete</div>
             </Nav.Link>
 
-            <Nav.Link href="#" className="text-center me-2">
+            <Nav.Link as={Link} to={"/jobs"} className="text-center me-2">
               <i
                 className="bi bi-briefcase-fill"
                 style={{ fontSize: "18px" }}
