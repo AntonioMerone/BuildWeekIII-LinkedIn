@@ -4,7 +4,7 @@ import "../assets/css/Skills.css";
 
 const Skills = () => {
   return (
-    <Card className="skills-card">
+    <Card className="skills-card mt-2">
       <Card.Body>
         <div className="skills-header">
           <h3 className="skills-title">Competenze</h3>
