@@ -20,14 +20,16 @@ const Skills = () => {
         </p>
 
         <div className="skills-categories">
-          <p className="skills-category">Soft skill: la lingua la usi?</p>
           <p className="skills-category">
-            Competenze tecniche: quanti chinotti fai
+            Soft skill: come comunichi e collabori?
+          </p>
+          <p className="skills-category">
+            Competenze tecniche: quali strumenti e tecnologie conosci?
           </p>
         </div>
 
         <Button variant="outline-primary" className="skills-add-btn">
-          Aggiungi competenze: come quelle di tue mamma
+          Aggiungi competenze
         </Button>
       </Card.Body>
     </Card>
