@@ -24,7 +24,7 @@ function HomeFeed() {
 
   const baseEndpoint = "https://striveschool-api.herokuapp.com/api/posts/"
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w"
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTNiZmI3NDY4MTc3YzAwMTUxMTI3NTMiLCJpYXQiOjE3NjU1Mzg5OTQsImV4cCI6MTc2Njc0ODU5NH0.peMGr6PFyZPec-SLZNSFdTmZ2Y4TWhK3k0vjqGzSPwQ"
 
   useEffect(() => {
     getPosts()

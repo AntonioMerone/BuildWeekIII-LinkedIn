@@ -1,4 +1,4 @@
-import { Card, Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap"
 import {
   FaVideo,
   FaImage,
@@ -11,24 +11,24 @@ import {
   FaComment,
   FaShare,
   FaPaperPlane,
-} from "react-icons/fa";
-import "../../assets/css/Feed.css";
+} from "react-icons/fa"
+import "../../assets/css/Feed.css"
 
-import { useState } from "react";
+import { useState } from "react"
 
 // TODO questo va convertito in actions di stefano
-import { setPostsData } from "../../reducers/postsReducerData";
+import { setPostsData } from "../../reducers/postsReducerData"
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"
 
 const CreatePostBox = () => {
-  const dispatch = useDispatch();
-  const baseEndpoint = "https://striveschool-api.herokuapp.com/api/posts/";
+  const dispatch = useDispatch()
+  const baseEndpoint = "https://striveschool-api.herokuapp.com/api/posts/"
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w";
-  const [localPosts, setLocalPosts] = useState([]);
-  const user = useSelector((state) => state.profileData);
-  const [text, setText] = useState("");
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTNiZmI3NDY4MTc3YzAwMTUxMTI3NTMiLCJpYXQiOjE3NjU1Mzg5OTQsImV4cCI6MTc2Njc0ODU5NH0.peMGr6PFyZPec-SLZNSFdTmZ2Y4TWhK3k0vjqGzSPwQ"
+  const [localPosts, setLocalPosts] = useState([])
+  const user = useSelector((state) => state.profileData)
+  const [text, setText] = useState("")
 
   const getPosts = async () => {
     try {
@@ -36,51 +36,51 @@ const CreatePostBox = () => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });
+      })
 
       if (response.ok) {
-        const data = await response.json();
-        const selectedPosts = data.slice(-11).reverse();
-        setLocalPosts(selectedPosts);
-        dispatch(setPostsData(selectedPosts));
+        const data = await response.json()
+        const selectedPosts = data.slice(-11).reverse()
+        setLocalPosts(selectedPosts)
+        dispatch(setPostsData(selectedPosts))
       } else {
-        console.error("Error fetching posts");
+        console.error("Error fetching posts")
       }
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   const createPost = async (text) => {
-    const url = "https://striveschool-api.herokuapp.com/api/posts/";
+    const url = "https://striveschool-api.herokuapp.com/api/posts/"
 
     const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w",
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTNiZmI3NDY4MTc3YzAwMTUxMTI3NTMiLCJpYXQiOjE3NjU1Mzg5OTQsImV4cCI6MTc2Njc0ODU5NH0.peMGr6PFyZPec-SLZNSFdTmZ2Y4TWhK3k0vjqGzSPwQ",
       },
       body: JSON.stringify({ text }),
-    });
+    })
 
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
     //dispatch(addPostData(text));
 
-    return res.json();
-  };
+    return res.json()
+  }
 
   const handleSubmit = async () => {
     //dispatch(setPostsData(selectedPosts));
-    getPosts();
+    getPosts()
     try {
-      const result = await createPost(text);
-      console.log("Created:", result);
-      setText("");
+      const result = await createPost(text)
+      console.log("Created:", result)
+      setText("")
     } catch (e) {
-      console.error(e);
+      console.error(e)
     }
-  };
+  }
 
   return (
     <Card className="create-post-card">
@@ -120,8 +120,8 @@ const CreatePostBox = () => {
         </button>
       </div>
     </Card>
-  );
-};
+  )
+}
 
 const FeedFilter = () => (
   <div className="feed-filter">
@@ -131,7 +131,7 @@ const FeedFilter = () => (
       Più rilevanti per primi <FaChevronDown size={10} />
     </button>
   </div>
-);
+)
 
 const SuggestionItem = ({ name, role, degree, image, verified }) => (
   <div className="suggestion-item">
@@ -152,7 +152,7 @@ const SuggestionItem = ({ name, role, degree, image, verified }) => (
       </Button>
     </div>
   </div>
-);
+)
 
 const SuggestionsCard = () => {
   const suggestions = [
@@ -177,7 +177,7 @@ const SuggestionsCard = () => {
       verified: true,
       image: "https://placebear.com/62/62",
     },
-  ];
+  ]
 
   return (
     <Card className="suggestions-card mb-3">
@@ -189,8 +189,8 @@ const SuggestionsCard = () => {
         Visualizza altro <FaArrowRight />
       </a>
     </Card>
-  );
-};
+  )
+}
 
 const PostCard = ({ author, followers, sponsored, text, image }) => (
   <Card className="post-card">
@@ -229,7 +229,7 @@ const PostCard = ({ author, followers, sponsored, text, image }) => (
       </button>
     </div>
   </Card>
-);
+)
 
 const Feed = () => {
   return (
@@ -238,7 +238,7 @@ const Feed = () => {
       <FeedFilter />
       <SuggestionsCard />
     </div>
-  );
-};
+  )
+}
 
-export default Feed;
+export default Feed

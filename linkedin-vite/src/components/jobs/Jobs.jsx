@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react"
+import { Container, Row, Col, Card, Button } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
 
 import {
   FaBriefcase,
@@ -13,18 +13,18 @@ import {
   FaShieldAlt,
   FaShoppingBag,
   FaLayerGroup,
-} from "react-icons/fa";
+} from "react-icons/fa"
 
-import MyNavbar from "../MyNavbar";
-import JobsSidebar from "./JobsSidebar";
+import MyNavbar from "../MyNavbar"
+import JobsSidebar from "./JobsSidebar"
 
-import HomeFooter from "../HomeFooter";
+import HomeFooter from "../HomeFooter"
 
 import {
   setJobsSearch,
   setJobsCompany,
   setJobsCategory,
-} from "../../reducers/jobsReducer";
+} from "../../reducers/jobsReducer"
 
 const JobCard = ({ job, isLast }) => {
   return (
@@ -82,11 +82,11 @@ const JobCard = ({ job, isLast }) => {
         <FaTimes className="text-secondary" style={{ cursor: "pointer" }} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const PremiumBanner = function () {
-  const user = useSelector((state) => state.profileData);
+  const user = useSelector((state) => state.profileData)
   return (
     <Card
       className="mb-3 border-0 shadow-sm p-3"
@@ -124,8 +124,8 @@ const PremiumBanner = function () {
         </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
 const CategoryExplorer = () => (
   <Card className="mb-3 border-0 shadow-sm p-3" style={{ borderRadius: "8px" }}>
@@ -157,50 +157,50 @@ const CategoryExplorer = () => (
       </div>
     </div>
   </Card>
-);
+)
 
 export default function Jobs() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const jobsResults = useSelector((state) => state.jobs.results);
-  const companyJobs = useSelector((state) => state.jobs.companyJobs);
-  const categoryJobs = useSelector((state) => state.jobs.categoryJobs);
+  const jobsResults = useSelector((state) => state.jobs.results)
+  const companyJobs = useSelector((state) => state.jobs.companyJobs)
+  const categoryJobs = useSelector((state) => state.jobs.categoryJobs)
 
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTM5NGU2OTYwMWIzODAwMTU0Nzk1YTIiLCJpYXQiOjE3NjUzNjMzMTQsImV4cCI6MTc2NjU3MjkxNH0.xE3rxZzOErGAexkCYzlCl4YP7kKO8OrhXQ5h8SqIY-w";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTNiZmI3NDY4MTc3YzAwMTUxMTI3NTMiLCJpYXQiOjE3NjU1Mzg5OTQsImV4cCI6MTc2Njc0ODU5NH0.peMGr6PFyZPec-SLZNSFdTmZ2Y4TWhK3k0vjqGzSPwQ"
 
   const fetchJobs = async (url, actionCreator) => {
     try {
       const response = await fetch(url, {
         headers: { Authorization: `Bearer ${token}` },
-      });
+      })
       if (response.ok) {
-        const { data } = await response.json();
-        dispatch(actionCreator(data.slice(0, 5)));
+        const { data } = await response.json()
+        dispatch(actionCreator(data.slice(0, 5)))
       } else {
-        console.error("Error fetching jobs");
+        console.error("Error fetching jobs")
       }
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  };
+  }
 
   useEffect(() => {
     fetchJobs(
       "https://strive-benchmark.herokuapp.com/api/jobs?search=developer&limit=5",
       setJobsSearch
-    );
+    )
 
     fetchJobs(
       "https://strive-benchmark.herokuapp.com/api/jobs?company=Olla",
       setJobsCompany
-    );
+    )
 
     fetchJobs(
       "https://strive-benchmark.herokuapp.com/api/jobs?category=writing&limit=10",
       setJobsCategory
-    );
-  }, []);
+    )
+  }, [])
 
   return (
     <>
@@ -291,5 +291,5 @@ export default function Jobs() {
         </Row>
       </Container>
     </>
-  );
+  )
 }
